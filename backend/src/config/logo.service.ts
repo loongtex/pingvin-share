@@ -7,7 +7,8 @@ const IMAGES_PATH = "../frontend/public/img";
 @Injectable()
 export class LogoService {
   async create(file: Buffer) {
-    fs.writeFileSync(`${IMAGES_PATH}/logo.png`, file, "binary");
+    const resized = await sharp(file).resize(900).toBuffer();
+    fs.writeFileSync(`${IMAGES_PATH}/logo.png`, resized, "binary");
     this.createFavicon(file);
     this.createPWAIcons(file);
   }

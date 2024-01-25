@@ -1,3 +1,116 @@
+## [0.21.5](https://github.com/stonith404/pingvin-share/compare/v0.21.4...v0.21.5) (2024-01-14)
+
+
+### Bug Fixes
+
+* password can be changed with wrong password ([0ccb836](https://github.com/stonith404/pingvin-share/commit/0ccb8364448d27ea07c8b11972ff454d610893c6))
+
+## [0.21.4](https://github.com/stonith404/pingvin-share/compare/v0.21.3...v0.21.4) (2024-01-09)
+
+
+### Features
+
+* **frontend:** add navigateToLink button for CopyTextField. close [#372](https://github.com/stonith404/pingvin-share/issues/372). ([#376](https://github.com/stonith404/pingvin-share/issues/376)) ([d775008](https://github.com/stonith404/pingvin-share/commit/d7750086b5b796cfc70d8dc0c7d0ab4bd1996ca0))
+
+## [0.21.3](https://github.com/stonith404/pingvin-share/compare/v0.21.2...v0.21.3) (2024-01-02)
+
+
+### Bug Fixes
+
+* don't show validation error on upload modal if password or max views are empty ([fe09d0e](https://github.com/stonith404/pingvin-share/commit/fe09d0e25f6fbfc4e1c9302054d3387fe8b1f0ea))
+
+## [0.21.2](https://github.com/stonith404/pingvin-share/compare/v0.21.1...v0.21.2) (2023-12-29)
+
+
+### Bug Fixes
+
+* missing logo images on fresh installation ([6fb31ab](https://github.com/stonith404/pingvin-share/commit/6fb31abd84b22cd464b6b45bf7ca6f83853e8720))
+* missing translations on reset password page ([7a301b4](https://github.com/stonith404/pingvin-share/commit/7a301b455cdea4b1dbc04cc6223e094fee9aca7b))
+
+## [0.21.1](https://github.com/stonith404/pingvin-share/compare/v0.21.0...v0.21.1) (2023-12-20)
+
+
+### Features
+
+* **oauth:** add oidc username claim ([#357](https://github.com/stonith404/pingvin-share/issues/357)) ([3ea52a2](https://github.com/stonith404/pingvin-share/commit/3ea52a24ef7c3b6845bc13382616ea0c8d784585))
+
+## [0.21.0](https://github.com/stonith404/pingvin-share/compare/v0.20.3...v0.21.0) (2023-12-01)
+
+
+### Features
+
+* **oauth:** limited discord server sign-in ([#346](https://github.com/stonith404/pingvin-share/issues/346)) ([5f94c72](https://github.com/stonith404/pingvin-share/commit/5f94c7295ab8594ed2ed615628214e869a02da2d))
+
+## [0.20.3](https://github.com/stonith404/pingvin-share/compare/v0.20.2...v0.20.3) (2023-11-17)
+
+
+### Bug Fixes
+
+* max expiration gets ignored if expiration is set to "never" ([330eef5](https://github.com/stonith404/pingvin-share/commit/330eef51e4f3f3fb29833bc9337e705553340aaa))
+
+## [0.20.2](https://github.com/stonith404/pingvin-share/compare/v0.20.1...v0.20.2) (2023-11-11)
+
+
+### Bug Fixes
+
+* **oauth:** github and discord login error ([#323](https://github.com/stonith404/pingvin-share/issues/323)) ([fd44f42](https://github.com/stonith404/pingvin-share/commit/fd44f42f28c0fa2091876b138f170202d9fde04e)), closes [#322](https://github.com/stonith404/pingvin-share/issues/322) [#302](https://github.com/stonith404/pingvin-share/issues/302)
+* reverse shares couldn't be created unauthenticated ([966ce26](https://github.com/stonith404/pingvin-share/commit/966ce261cb4ad99efaadef5c36564fdfaed0d5c4))
+
+## [0.20.1](https://github.com/stonith404/pingvin-share/compare/v0.20.0...v0.20.1) (2023-11-05)
+
+
+### Bug Fixes
+
+* share information text color in light mode ([1138cd0](https://github.com/stonith404/pingvin-share/commit/1138cd02b0b6ac1d71c4dbc2808110c672237190))
+
+## [0.20.0](https://github.com/stonith404/pingvin-share/compare/v0.19.2...v0.20.0) (2023-11-04)
+
+
+### Features
+
+* ability to add and delete files of existing share ([#306](https://github.com/stonith404/pingvin-share/issues/306)) ([98380e2](https://github.com/stonith404/pingvin-share/commit/98380e2d48cc8ffa831d9b69cf5c0e8a40e28862))
+
+## [0.19.2](https://github.com/stonith404/pingvin-share/compare/v0.19.1...v0.19.2) (2023-11-03)
+
+
+### Features
+
+* ability to limit the max expiration of a share ([bbfc9d6](https://github.com/stonith404/pingvin-share/commit/bbfc9d6f147eea404f011c3af9d7dc7655c3d21d))
+* change totp issuer to display logo in 2FAS app ([e0fbbec](https://github.com/stonith404/pingvin-share/commit/e0fbbeca3c1a858838b20aeead52694772b7d871))
+
+
+### Bug Fixes
+
+* jwt secret changes on application restart ([33742a0](https://github.com/stonith404/pingvin-share/commit/33742a043d6549783984ae7e8a3c30f0fe3917de))
+* wrong validation of setting max share expiration to `0` ([acc35f4](https://github.com/stonith404/pingvin-share/commit/acc35f47178e230f50ce54d6f1ad5370caa3382d))
+
+## [0.19.1](https://github.com/stonith404/pingvin-share/compare/v0.19.0...v0.19.1) (2023-10-22)
+
+
+### Bug Fixes
+
+* **oauth:** fix wrong redirectUri in oidc after change appUrl ([#296](https://github.com/stonith404/pingvin-share/issues/296)) ([119b1ec](https://github.com/stonith404/pingvin-share/commit/119b1ec840ad7f4e1c7c4bb476bf1eeed91d9a1a))
+
+## [0.19.0](https://github.com/stonith404/pingvin-share/compare/v0.18.2...v0.19.0) (2023-10-22)
+
+
+### Features
+
+* **auth:** add OAuth2 login ([#276](https://github.com/stonith404/pingvin-share/issues/276)) ([02cd98f](https://github.com/stonith404/pingvin-share/commit/02cd98fa9cf9865d91494848aabaf42b19e4957b)), closes [#278](https://github.com/stonith404/pingvin-share/issues/278) [#279](https://github.com/stonith404/pingvin-share/issues/279) [#281](https://github.com/stonith404/pingvin-share/issues/281)
+
+
+### Bug Fixes
+
+* delete unfinished shares after a day ([d327bc3](https://github.com/stonith404/pingvin-share/commit/d327bc355c8583231e058731934cf51ab25d9ce5))
+
+## [0.18.2](https://github.com/stonith404/pingvin-share/compare/v0.18.1...v0.18.2) (2023-10-09)
+
+
+### Bug Fixes
+
+* disable image optimizations for logo to prevent caching issues with custom logos ([3891900](https://github.com/stonith404/pingvin-share/commit/38919003e9091203b507d0f0b061f4a1835ff4f4))
+* memory leak while downloading large files ([97e7d71](https://github.com/stonith404/pingvin-share/commit/97e7d7190dfe219caf441dffcd7830c304c3c939))
+
 ## [0.18.1](https://github.com/stonith404/pingvin-share/compare/v0.18.0...v0.18.1) (2023-09-22)
 
 

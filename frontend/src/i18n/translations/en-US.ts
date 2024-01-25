@@ -43,6 +43,12 @@ export default {
   "signIn.notify.totp-required.title": "Two-factor authentication required",
   "signIn.notify.totp-required.description":
     "Please enter your two-factor authentication code",
+  "signIn.oauth.or": "OR",
+  "signIn.oauth.github": "GitHub",
+  "signIn.oauth.google": "Google",
+  "signIn.oauth.microsoft": "Microsoft",
+  "signIn.oauth.discord": "Discord",
+  "signIn.oauth.oidc": "OpenID",
 
   // END /auth/signin
 
@@ -57,6 +63,12 @@ export default {
   "signup.button.submit": "Let's get started",
 
   // END /auth/signup
+
+  // /auth/totp
+  "totp.title": "TOTP Authentication",
+  "totp.button.signIn": "Sign in",
+
+  // END /auth/totp
 
   // /auth/reset-password
   "resetPassword.title": "Forgot your password?",
@@ -81,7 +93,22 @@ export default {
   "account.card.password.title": "Password",
   "account.card.password.old": "Old password",
   "account.card.password.new": "New password",
+  "account.card.password.noPasswordSet": "You don't have a password set. If you want to sign in with email and password you need to set a password.",
   "account.notify.password.success": "Password changed successfully",
+
+  "account.card.oauth.title": "Social login",
+  "account.card.oauth.github": "GitHub",
+  "account.card.oauth.google": "Google",
+  "account.card.oauth.microsoft": "Microsoft",
+  "account.card.oauth.discord": "Discord",
+  "account.card.oauth.oidc": "OpenID",
+  "account.card.oauth.link": "Link",
+  "account.card.oauth.unlink": "Unlink",
+  "account.card.oauth.unlinked": "Unlinked",
+  "account.modal.unlink.title": "Unlink account",
+  "account.modal.unlink.description": "Unlinking your social accounts may cause you to lose your account if you don't remember your username and password.",
+  "account.notify.oauth.unlinked.success": "Unlinked successfully",
+
 
   "account.card.security.title": "Security",
   "account.card.security.totp.enable.description":
@@ -261,6 +288,7 @@ export default {
 
   "upload.modal.expires.never": "never",
   "upload.modal.expires.never-long": "Never Expires",
+  "upload.modal.expires.error.too-long": "Expiration exceeds maximum expiration date of {max}.",
 
   "upload.modal.link.label": "Link",
   "upload.modal.expires.label": "Expiration",
@@ -326,9 +354,16 @@ export default {
 
   "share.modal.file-preview.error.not-supported.title": "Preview not supported",
   "share.modal.file-preview.error.not-supported.description":
-    "A preview for thise file type is unsupported. Please download the file to view it.",
+    "A preview for this file type is unsupported. Please download the file to view it.",
 
   // END /share/[id]
+
+  // /share/[id]/edit
+  "share.edit.title": "Edit {shareId}",
+  "share.edit.append-upload": "Append file",
+  "share.edit.notify.generic-error": "An error occurred while finishing your share.",
+  "share.edit.notify.save-success": "Share updated successfully",
+  // END /share/[id]/edit
 
   // /admin/config
   "admin.config.title": "Configuration",
@@ -336,6 +371,7 @@ export default {
   "admin.config.category.share": "Share",
   "admin.config.category.email": "Email",
   "admin.config.category.smtp": "SMTP",
+  "admin.config.category.oauth": "Social Login",
 
   "admin.config.general.app-name": "App name",
   "admin.config.general.app-name.description": "Name of the application",
@@ -385,6 +421,9 @@ export default {
     "Allow unauthenticated shares",
   "admin.config.share.allow-unauthenticated-shares.description":
     "Whether unauthenticated users can create shares",
+  "admin.config.share.max-expiration": "Max expiration",
+  "admin.config.share.max-expiration.description":
+    "Maximum share expiration in hours. Set to 0 to allow unlimited expiration.",
   "admin.config.share.max-size": "Max size",
   "admin.config.share.max-size.description": "Maximum share size in bytes",
   "admin.config.share.zip-compression-level": "Zip compression level",
@@ -407,9 +446,73 @@ export default {
   "admin.config.smtp.password.description": "Password of the SMTP server",
   "admin.config.smtp.button.test": "Send test email",
 
+  "admin.config.oauth.allow-registration": "Allow registration",
+  "admin.config.oauth.allow-registration.description": "Allow users to register via social login",
+  "admin.config.oauth.ignore-totp": "Ignore TOTP",
+  "admin.config.oauth.ignore-totp.description": "Whether to ignore TOTP when user using social login",
+  "admin.config.oauth.github-enabled": "GitHub",
+  "admin.config.oauth.github-enabled.description": "Whether GitHub login is enabled",
+  "admin.config.oauth.github-client-id": "GitHub Client ID",
+  "admin.config.oauth.github-client-id.description": "Client ID of the GitHub OAuth app",
+  "admin.config.oauth.github-client-secret": "GitHub Client secret",
+  "admin.config.oauth.github-client-secret.description": "Client secret of the GitHub OAuth app",
+  "admin.config.oauth.google-enabled": "Google",
+  "admin.config.oauth.google-enabled.description": "Whether Google login is enabled",
+  "admin.config.oauth.google-client-id": "Google Client ID",
+  "admin.config.oauth.google-client-id.description": "Client ID of the Google OAuth app",
+  "admin.config.oauth.google-client-secret": "Google Client secret",
+  "admin.config.oauth.google-client-secret.description": "Client secret of the Google OAuth app",
+  "admin.config.oauth.microsoft-enabled": "Microsoft",
+  "admin.config.oauth.microsoft-enabled.description": "Whether Microsoft login is enabled",
+  "admin.config.oauth.microsoft-tenant": "Microsoft Tenant",
+  "admin.config.oauth.microsoft-tenant.description": "Tenant ID of the Microsoft OAuth app\ncommon: Users with both a personal Microsoft account and a work or school account from Microsoft Entra ID can sign in to the application. organizations: Only users with work or school accounts from Microsoft Entra ID can sign in to the application.\nconsumers: Only users with a personal Microsoft account can sign in to the application.\ndomain name of the Microsoft Entra tenant or the tenant ID in GUID format: Only users from a specific Microsoft Entra tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application.",
+  "admin.config.oauth.microsoft-client-id": "Microsoft Client ID",
+  "admin.config.oauth.microsoft-client-id.description": "Client ID of the Microsoft OAuth app",
+  "admin.config.oauth.microsoft-client-secret": "Microsoft Client secret",
+  "admin.config.oauth.microsoft-client-secret.description": "Client secret of the Microsoft OAuth app",
+  "admin.config.oauth.discord-enabled": "Discord",
+  "admin.config.oauth.discord-enabled.description": "Whether Discord login is enabled",
+  "admin.config.oauth.discord-limited-guild": "Discord limited server ID",
+  "admin.config.oauth.discord-limited-guild.description": "Limit signing in to users in a specific server. Leave it blank to disable.",
+  "admin.config.oauth.discord-client-id": "Discord Client ID",
+  "admin.config.oauth.discord-client-id.description": "Client ID of the Discord OAuth app",
+  "admin.config.oauth.discord-client-secret": "Discord Client secret",
+  "admin.config.oauth.discord-client-secret.description": "Client secret of the Discord OAuth app",
+  "admin.config.oauth.oidc-enabled": "OpenID Connect",
+  "admin.config.oauth.oidc-enabled.description": "Whether OpenID Connect login is enabled",
+  "admin.config.oauth.oidc-discovery-uri": "OpenID Connect Discovery URI",
+  "admin.config.oauth.oidc-discovery-uri.description": "Discovery URI of the OpenID Connect OAuth app",
+  "admin.config.oauth.oidc-username-claim": "OpenID Connect username claim",
+  "admin.config.oauth.oidc-username-claim.description": "Username claim in OpenID Connect ID token. Leave it blank if you don't know what this config is.",
+  "admin.config.oauth.oidc-client-id": "OpenID Connect Client ID",
+  "admin.config.oauth.oidc-client-id.description": "Client ID of the OpenID Connect OAuth app",
+  "admin.config.oauth.oidc-client-secret": "OpenID Connect Client secret",
+  "admin.config.oauth.oidc-client-secret.description": "Client secret of the OpenID Connect OAuth app",
+
   // 404
   "404.description": "Oops this page doesn't exist.",
   "404.button.home": "Bring me back home",
+
+  // error
+  "error.title": "Error",
+  "error.description": "Oops!",
+  "error.button.back": "Go back",
+  "error.msg.default": "Something went wrong.",
+  "error.msg.access_denied": "You canceled the authentication process, please try again.",
+  "error.msg.expired_token": "The authentication process took too long, please try again.",
+  "error.msg.invalid_token": "Internal Error",
+  "error.msg.no_user": "User linked to this {0} account doesn't exist.",
+  "error.msg.no_email": "Can't get email address from this {0} account.",
+  "error.msg.already_linked": "This {0} account is already linked to another account.",
+  "error.msg.not_linked": "This {0} account haven't linked to any account yet.",
+  "error.msg.unverified_account": "This {0} account is unverified, please try again after verification.",
+  "error.msg.discord_guild_permission_denied": "You are not allowed to sign in.",
+  "error.msg.cannot_get_user_info": "Can not get your user info from this {0} account.",
+  "error.param.provider_github": "GitHub",
+  "error.param.provider_google": "Google",
+  "error.param.provider_microsoft": "Microsoft",
+  "error.param.provider_discord": "Discord",
+  "error.param.provider_oidc": "OpenID Connect",
 
   // Common translations
   "common.button.save": "Save",
@@ -423,6 +526,7 @@ export default {
   "common.button.generate": "Generate",
   "common.button.done": "Done",
   "common.text.link": "Link",
+  "common.text.navigate-to-link": "Go to the link",
   "common.text.or": "or",
   "common.button.go-back": "Go back",
   "common.notify.copied": "Your link was copied to the clipboard",

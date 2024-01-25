@@ -14,6 +14,9 @@ import { ShareModule } from "./share/share.module";
 import { UserModule } from "./user/user.module";
 import { ClamScanModule } from "./clamscan/clamscan.module";
 import { ReverseShareModule } from "./reverseShare/reverseShare.module";
+import { AppController } from "./app.controller";
+import { OAuthModule } from "./oauth/oauth.module";
+import { CacheModule } from "@nestjs/cache-manager";
 
 @Module({
   imports: [
@@ -32,7 +35,12 @@ import { ReverseShareModule } from "./reverseShare/reverseShare.module";
     ScheduleModule.forRoot(),
     ClamScanModule,
     ReverseShareModule,
+    OAuthModule,
+    CacheModule.register({
+      isGlobal: true,
+    }),
   ],
+  controllers: [AppController],
   providers: [
     {
       provide: APP_GUARD,

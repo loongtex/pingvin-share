@@ -2,7 +2,7 @@
 
 ---
 
-_Leer esto en otro idioma: [Inglés](/README.md), [Español](/docs/README.es.md), [Chino Simplificado](/docs/README.zh-cn.md)_
+_Leer esto en otro idioma: [Inglés](/README.md), [Español](/docs/README.es.md), [Chino Simplificado](/docs/README.zh-cn.md), [日本語](/docs/README.ja-jp.md)_
 
 ---
 
@@ -20,7 +20,8 @@ Pingvin Share es una plataforma de intercambio de archivos autoalojada y una alt
 ## 🐧 Conoce Pingvin Share
 
 - [Demo](https://pingvin-share.dev.eliasschneider.com)
-- [Reseña por DB Tech](https://www.youtube.com/watch?v=rWwNeZCOPJA)
+- [Reseña realizada por No Solo Hacking (español)](https://www.youtube.com/watch?v=ocd4EpLTYkU)
+- [Reseña por DB Tech (inglés)](https://www.youtube.com/watch?v=rWwNeZCOPJA)
 
 <img src="https://user-images.githubusercontent.com/58886915/225038319-b2ef742c-3a74-4eb6-9689-4207a36842a4.png" width="700"/>
 

@@ -42,7 +42,14 @@ const Upload = ({
 
   const uploadFiles = async (share: CreateShare, files: FileUpload[]) => {
     setisUploading(true);
-    createdShare = await shareService.create(share);
+
+    try {
+      createdShare = await shareService.create(share);
+    } catch (e) {
+      toast.axiosError(e);
+      setisUploading(false);
+      return;
+    }
 
     const fileUploadPromises = files.map(async (file, fileIndex) =>
       // Limit the number of concurrent uploads to 3
@@ -56,7 +63,7 @@ const Upload = ({
                 file.uploadingProgress = progress;
               }
               return file;
-            })
+            }),
           );
         };
 
@@ -84,7 +91,7 @@ const Upload = ({
                       name: file.name,
                     },
                     chunkIndex,
-                    chunks
+                    chunks,
                   )
                   .then((response) => {
                     fileId = response.id;
@@ -114,7 +121,7 @@ const Upload = ({
             }
           }
         }
-      })
+      }),
     );
 
     Promise.all(fileUploadPromises);
@@ -129,19 +136,20 @@ const Upload = ({
         isReverseShare,
         appUrl: config.get("general.appUrl"),
         allowUnauthenticatedShares: config.get(
-          "share.allowUnauthenticatedShares"
+          "share.allowUnauthenticatedShares",
         ),
         enableEmailRecepients: config.get("email.enableShareEmailRecipients"),
+        maxExpirationInHours: config.get("share.maxExpiration"),
       },
       files,
-      uploadFiles
+      uploadFiles,
     );
   };
 
   useEffect(() => {
     // Check if there are any files that failed to upload
     const fileErrorCount = files.filter(
-      (file) => file.uploadingProgress == -1
+      (file) => file.uploadingProgress == -1,
     ).length;
 
     if (fileErrorCount > 0) {
@@ -151,7 +159,7 @@ const Upload = ({
           {
             withCloseButton: false,
             autoClose: false,
-          }
+          },
         );
       }
       errorToastShown = true;
@@ -194,7 +202,9 @@ const Upload = ({
         showCreateUploadModalCallback={showCreateUploadModalCallback}
         isUploading={isUploading}
       />
-      {files.length > 0 && <FileList files={files} setFiles={setFiles} />}
+      {files.length > 0 && (
+        <FileList<FileUpload> files={files} setFiles={setFiles} />
+      )}
     </>
   );
 };

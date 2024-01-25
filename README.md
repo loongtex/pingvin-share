@@ -2,7 +2,7 @@
 
 ---
 
-_Read this in another language: [Spanish](/docs/README.es.md), [English](/README.md), [Simplified Chinese](/docs/README.zh-cn.md)_
+_Read this in another language: [Spanish](/docs/README.es.md), [English](/README.md), [Simplified Chinese](/docs/README.zh-cn.md), [日本語](/docs/README.ja-jp.md)_
 
 ---
 
@@ -63,6 +63,8 @@ npm run build
 pm2 start --name="pingvin-share-frontend" npm -- run start
 ```
 
+**Uploading Large Files**: By default, Pingvin Share uses a built-in reverse proxy to reduce the installation steps. However, this reverse proxy is not optimized for uploading large files. If you wish to upload larger files, you can either use the Docker installation or set up your own reverse proxy. An example configuration for Nginx can be found in `/nginx/nginx.conf`.
+
 The website is now listening on `http://localhost:3000`, have fun with Pingvin Share 🐧!
 
 ### Integrations
@@ -76,6 +78,10 @@ ClamAV is used to scan shares for malicious files and remove them if found.
 3. The Pingvin Share logs should now log "ClamAV is active"
 
 Please note that ClamAV needs a lot of [ressources](https://docs.clamav.net/manual/Installing/Docker.html#memory-ram-requirements).
+
+#### OAuth 2 Login
+
+View the [OAuth 2 guide](/docs/oauth2-guide.md) for more information.
 
 ### Additional resources
 

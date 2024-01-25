@@ -1,15 +1,22 @@
 import danish from "./translations/da-DK";
 import german from "./translations/de-DE";
+import greek from "./translations/el-GR";
 import english from "./translations/en-US";
 import spanish from "./translations/es-ES";
 import finnish from "./translations/fi-FI";
 import french from "./translations/fr-FR";
+import italian from "./translations/it-IT";
+import japanese from "./translations/ja-JP";
 import dutch from "./translations/nl-BE";
+import polish from "./translations/pl-PL";
 import portuguese from "./translations/pt-BR";
 import russian from "./translations/ru-RU";
+import slovenian from "./translations/sl-SI";
 import serbian from "./translations/sr-SP";
+import swedish from "./translations/sv-SE";
 import thai from "./translations/th-TH";
 import chineseSimplified from "./translations/zh-CN";
+import chineseTraditional from "./translations/zh-TW";
 
 export const LOCALES = {
   ENGLISH: {
@@ -47,6 +54,11 @@ export const LOCALES = {
     code: "zh-CN",
     messages: chineseSimplified,
   },
+  CHINESE_TRADITIONAL: {
+    name: "正體中文",
+    code: "zh-TW",
+    messages: chineseTraditional,
+  },
   FINNISH: {
     name: "Suomi",
     code: "fi-FI",
@@ -71,5 +83,35 @@ export const LOCALES = {
     name: "Nederlands",
     code: "nl-BE",
     messages: dutch,
+  },
+  JAPANESE: {
+    name: "日本語",
+    code: "ja-JP",
+    messages: japanese,
+  },
+  POLISH: {
+    name: "Polski",
+    code: "pl-PL",
+    messages: polish,
+  },
+  SWEDISH: {
+    name: "Svenska",
+    code: "sv-SE",
+    messages: swedish,
+  },
+  ITALIAN: {
+    name: "Italiano",
+    code: "it-IT",
+    messages: italian,
+  },
+  GREEK: {
+    name: "Ελληνικά",
+    code: "el-GR",
+    messages: greek,
+  },
+  SLOVENIAN: {
+    name: "Slovenščina",
+    code: "sl-SI",
+    messages: slovenian,
   },
 };
